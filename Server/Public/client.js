@@ -37,3 +37,73 @@ function clearFunction(firstNumber, secondNumber) {
     $('#second-number-text').val('');
 };
 
+// initiated function to get mathList array from server:
+function getMath() {
+    $.ajax({
+        type: 'GET',
+        url: '/list'
+
+// this allows it to appear on the DOM using renderToDom function
+    }).then(function (response) {
+        console.log('Success!', response);
+        renderToDom(response);
+
+// if it doesn't work, gives an alert:
+    }).catch(function(error) {
+        alert('Request failed! :(');
+        console.log('Request failed: ', error);
+    });
+}
+
+// initiated function to get answer from server:
+// this allows it to appear on the DOM using renderToDom function
+function getAnswer(){
+    $.ajax({
+        method: 'GET',
+        url: '/answer'
+
+// this allows it to appear on the DOM using renderToDom function
+    }).then(function(response){
+        result = response.answer;
+        renderToDom(answer);
+
+// if it doesn't work, gives an alert:
+    }).catch(function(error){
+        alert('error in getAnswer!');
+    });
+} 
+
+function handleClickEqualsButton(event) {
+    event.preventDefault();
+    console.log('submit called')
+// creating variables to hold first and second number input fields:
+    const firstNumber = $('#first-number-text').val();
+    const secondNumber = $('#second-number-text').val();
+    
+// clear input fields on submit:
+    $('#first-number-text').val('');
+    $('#second-number-text').val('');
+
+// using AJAX to post user inputs to server:
+    $.ajax({
+        method: 'POST',
+        url: '/calculate',
+        data: {
+            firstNumber,
+            secondNumber,
+            operator
+        }
+    }).then(function(response) {
+        console.log('Success!');
+// call getMath function:
+        getMath();
+// call getAnswer function:
+        getAnswer();
+// if it doesn't work, gives an alert:
+    }).catch(function(error) {
+        alert('Error with math post!');
+        console.log('Error with post: ', error);
+    });
+};
+
+// put renderToDom function here:
