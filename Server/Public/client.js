@@ -14,3 +14,26 @@ function onReady() {
  
     getMath()
 };
+
+// initiated operator variable:
+let operator;
+
+// initiated click functions for each button
+// determines operator variable 
+function addFunction(firstNumber, secondNumber) {
+    operator = '+';
+};
+function subtractFunction(firstNumber, secondNumber) {
+    operator = '-';
+};
+function multiplyFunction(firstNumber, secondNumber) {
+    operator = 'x';
+};
+function divideFunction(firstNumber, secondNumber) {
+    operator = '÷';
+};
+function clearFunction(firstNumber, secondNumber) {
+    $('#first-number-text').val('');
+    $('#second-number-text').val('');
+};
+
