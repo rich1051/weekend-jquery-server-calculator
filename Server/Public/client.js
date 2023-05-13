@@ -12,7 +12,7 @@ function onReady() {
     $('#divide-button').on('click', divideFunction);
     $('#clear-button').on('click', clearFunction);
  
-    getMath()
+    getMath();
 };
 
 // initiated operator variable:
@@ -53,7 +53,7 @@ function getMath() {
         alert('Request failed! :(');
         console.log('Request failed: ', error);
     });
-}
+};
 
 // initiated function to get answer from server:
 // this allows it to appear on the DOM using renderToDom function
@@ -71,7 +71,7 @@ function getAnswer(){
     }).catch(function(error){
         alert('error in getAnswer!');
     });
-} 
+}; 
 
 function handleClickEqualsButton(event) {
     event.preventDefault();
@@ -106,4 +106,19 @@ function handleClickEqualsButton(event) {
     });
 };
 
-// put renderToDom function here:
+// initiated function to get user data to show up on DOM:
+function renderToDom(calculations) {
+// getting rid of any "old" data
+        $('#math-history').empty();
+// .text only the most recent generated answer to DOM using for-of loop:
+        for (let calculation of calculations) {
+            $('#answer-text').text(`
+                ${calculation.answer}
+        `);
+// .append the firstNumber, secondNumber, operator, and answer
+// to DOM to generate list of past calculations using for-of loop:
+            $('#math-history').append(`
+                <li>${calculation.firstNumber} ${calculation.operator} ${calculation.secondNumber} = ${calculation.answer}</li>
+            `);
+        };
+    };
