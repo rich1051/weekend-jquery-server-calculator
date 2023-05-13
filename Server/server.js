@@ -14,6 +14,9 @@ app.use(express.static('server/public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+//importing mathList variable from module:
+let mathList = require('./modules/math');
+
 app.listen(PORT, () => {
 // console logging to ensure server is running:
     console.log('listening on port', PORT)
