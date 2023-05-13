@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Server-Side Calculator</title>
+    <script src="jquery.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Weekend Challenge: Server-Side Calculator</h1>
+
+    <h2>Use the inputs below to do your math:</h2>
+    <div id="calculator-div">
+        <input type="number" id="first-number-text" placeholder="First Number Here"></input>
+        <button id="add-button" class="operator-button">+</button>
+        <button id="subtract-button" class="operator-button">-</button>
+        <button id="multiply-button" class="operator-button">x</button>
+        <button id="divide-button" class="operator-button">÷</button>
+        <input type="number" id="second-number-text" placeholder="Second Number Here"></input>
+        <button id="equal-button" class="operator-button">=</button>
+        <button type="reset" id="clear-button" class="operator-button">C</button>
+    </div>
+    <h3>Answer:
+        <p id="answer-text"></p>
+    </h3>
+    <h4>Here is a list of your calculator history:</h4>
+    <ul id="math-history"></ul>
+    <p id="example"></p>
+</body>
+</html>
