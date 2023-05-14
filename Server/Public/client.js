@@ -69,7 +69,7 @@ function getAnswer(){
 
 // if it doesn't work, gives an alert:
     }).catch(function(error){
-        alert('error in getAnswer!');
+        // alert('error in getAnswer!');
     });
 }; 
 

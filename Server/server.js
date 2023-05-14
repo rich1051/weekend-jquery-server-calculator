@@ -42,11 +42,37 @@ app.get('/answer', function(req, res) {
     res.send({answer: answer});
 });
 
-// write logic here:
+app.post('/calculate', function(req, res) {
+    let firstNumber = Number(req.body.firstNumber);
+    let secondNumber = Number(req.body.secondNumber);
+    let operator = req.body.operator
 
-
-
-
+    if (req.body.operator === '+') {
+    answer = firstNumber + secondNumber;
+    console.log(answer);
+    }
+    else if (req.body.operator === '-') {
+    answer = firstNumber - secondNumber;
+    console.log(answer);
+    }
+    else if (req.body.operator === 'x') {
+    answer = firstNumber * secondNumber;
+    console.log(answer);
+    }
+    else if (req.body.operator === '÷') {
+    answer = firstNumber / secondNumber;
+    console.log(answer);
+    };
+    
+    mathArray = {
+        firstNumber,
+        secondNumber,
+        operator,
+        answer
+    };
+    mathList.push(mathArray);
+    res.sendStatus(201);
+});
 
 app.listen(PORT, () => {
 // console logging to ensure server is running:
