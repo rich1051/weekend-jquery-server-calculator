@@ -62,14 +62,14 @@ function getAnswer(){
         method: 'GET',
         url: '/answer'
 
-// this allows it to appear on the DOM using renderToDom function
     }).then(function(response){
-        result = response.answer;
-        renderToDom(answer);
+// I thought this portion of code would work but it alerted with below error:
+        // answer = response.answer;
+        // renderToDom(answer);
 
 // if it doesn't work, gives an alert:
     }).catch(function(error){
-        // alert('error in getAnswer!');
+        alert('error in getAnswer!');
     });
 }; 
 
