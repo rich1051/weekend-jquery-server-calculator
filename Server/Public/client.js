@@ -66,7 +66,8 @@ function getAnswer(){
 // I thought this portion of code would work but it alerted with below error:
         // answer = response.answer;
         // renderToDom(answer);
-
+// console.logging to ensure working properly:
+        console.log('Success in getAnswer function!');
 // if it doesn't work, gives an alert:
     }).catch(function(error){
         alert('error in getAnswer!');
