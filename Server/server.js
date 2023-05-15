@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 // create an instance of express by calling function above
 const app = express();
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 // serve static files that live in the public folder
 app.use(express.static('server/public'));
